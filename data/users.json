@@ -1,0 +1,135 @@
+[
+	{
+		"id": 1,
+		"name": "John Doe",
+		"weekly_plan": [
+			{
+				"day": "Sunday",
+				"meals": [
+					{
+						"id": 3,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 6,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 9,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				],
+				"snacks": [
+					{
+						"id": 7,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				],
+				"drinks": [
+					{
+						"id": 8,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 9,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 10,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				]
+			},
+			{
+				"day": "Monday",
+				"meals": [
+					{
+						"id": 1,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 2,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 3,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				],
+				"snacks": [
+					{
+						"id": 6,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				],
+				"drinks": [
+					{
+						"id": 8,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 9,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				]
+			},
+			{
+				"day": "Tuesday",
+				"meals": [
+					{
+						"id": 4,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 2,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					},
+					{
+						"id": 3,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				],
+				"snacks": [
+					{
+						"id": 7,
+						"status": "planned",
+						"portion": "regular",
+						"eaten_at": null
+					}
+				]
+			}
+		]
+	}
+]

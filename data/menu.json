@@ -1,0 +1,62 @@
+[
+    {
+      "id": 1,
+      "name": "Grilled Chicken Salad",
+      "calories": 350,
+      "category": "Lunch"
+    },
+    {
+      "id": 2,
+      "name": "Quinoa Bowl with Roasted Veggies",
+      "calories": 420,
+      "category": "Dinner"
+    },
+    {
+      "id": 3,
+      "name": "Overnight Oats with Berries",
+      "calories": 280,
+      "category": "Breakfast"
+    },
+    {
+      "id": 4,
+      "name": "Tuna Wrap with Avocado",
+      "calories": 390,
+      "category": "Lunch"
+    },
+    {
+      "id": 5,
+      "name": "Baked Salmon with Roasted Sweet Potatoes",
+      "calories": 480,
+      "category": "Dinner"
+    },
+    {
+      "id": 6,
+      "name": "Greek Yogurt with Granola",
+      "calories": 200,
+      "category": "Snack"
+    },
+    {
+      "id": 7,
+      "name": "Apple with Peanut Butter",
+      "calories": 150,
+      "category": "Snack"
+    },
+    {
+      "id": 8,
+      "name": "Black Coffee",
+      "calories": 0,
+      "category": "Drink"
+    },
+    {
+      "id": 9,
+      "name": "Water",
+      "calories": 0,
+      "category": "Drink"
+    },
+    {
+      "id": 10,
+      "name": "Glass of Wine",
+      "calories": 120,
+      "category": "Drink"
+    }
+  ]
