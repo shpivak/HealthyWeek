@@ -25,6 +25,16 @@ def get_users():
 def get_user_plan(user_id):
     return jsonify(user_service.get_user_plan(user_id))
 
+@app.route('/api/users/<int:user_id>/possibilities', methods=['GET'])
+def get_user_possibilities(user_id):
+    return jsonify(user_service.get_user_possibilities(user_id))
+
+@app.route('/api/users/<int:user_id>/plan', methods=['POST'])
+def add_meal_to_user_plan(user_id):
+    data = request.get_json()
+    user_service.add_meal_to_user_plan(user_id, data)
+    return jsonify({'message': 'Meal added to user plan successfully'}), 200
+
 @app.route('/api/users/<int:user_id>/plan', methods=['POST'])
 def update_user_plan(user_id):
     data = request.get_json()
