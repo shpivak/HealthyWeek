@@ -5,7 +5,7 @@ from bl.menu_service import MenuService
 from bl.user_service import UserService
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='healthyweek-frontend/build/static', template_folder='healthyweek-frontend/build')
 
 # Initialize DAOs and Services
 menu_dao = MenuDAO()
@@ -44,10 +44,11 @@ def update_user_plan(user_id):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_frontend(path):
-    if path != "" and os.path.exists(app.root_path + '/assets/' + path):
-        return send_from_directory('assets', path)
+    if path != "" and os.path.exists(app.root_path + '/healthyweek-frontend/build/' + path):
+            return send_from_directory('healthyweek-frontend/build/', path)
     else:
-        return send_from_directory('assets', 'index.html')
+        return send_from_directory('healthyweek-frontend/build', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
+    # app.run(host='127.0.0.1', port=5000, debug=True)  # Default localhost
