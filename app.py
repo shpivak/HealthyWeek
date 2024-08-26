@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, send_from_directory
+from flask_cors import CORS
 from dao.menu_dao import MenuDAO
 from dao.user_dao import UserDAO
 from bl.menu_service import MenuService
@@ -6,6 +7,7 @@ from bl.user_service import UserService
 import os
 
 app = Flask(__name__, static_folder='healthyweek-frontend/build/static', template_folder='healthyweek-frontend/build')
+CORS(app)
 
 # Initialize DAOs and Services
 menu_dao = MenuDAO()

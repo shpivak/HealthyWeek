@@ -11,10 +11,13 @@ class UserService:
     def get_user_possibilities(self, user_id):
         return self.user_dao.get_user_possibilities(user_id)
 
-    def update_user_plan(self, user_id, plan_data):
-        self.user_dao.update_user_plan(user_id, plan_data)
+    # def update_user_plan(self, user_id, plan_data):
+    #     self.user_dao.update_user_plan(user_id, plan_data)
 
-    def add_meal_to_user_plan(self, user_id, meal):
+    def add_meal_to_user_plan(self, user_id, meal_data):
         plan = self.get_user_plan(user_id)
-        plan["weekly_plan"][0]["meals"].append(meal) #TODO
+        print (meal_data["meal_id"])
+        print(plan)
+        plan[0]["meals"].append(meal_data["meal_id"])
+        print(plan)
         self.user_dao.update_user_plan(user_id, plan)
