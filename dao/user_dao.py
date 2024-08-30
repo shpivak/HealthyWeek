@@ -19,6 +19,14 @@ class UserDAO:
                 return user['weekly_plan']
         return None
 
+    def get_full_user_plan_meals(self, user_id):
+        response = {}
+        for user in self.user_data:
+            if user['id'] == user_id:
+                response = user
+        response['meals']=self.menu_dao.menu_data
+        return response
+
     def get_user_possibilities(self, user_id):
         for user in self.user_data:
             if user['id'] == user_id:

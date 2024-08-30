@@ -1,53 +1,50 @@
-export async function getUserPlan(userId) {
-    // Implement the logic to fetch the user's weekly plan from the backend
-    // and return the data
-  }
-  
-  var LOCAL = true;
-  var server = ""
+const LOCAL = true;
+const SERVER = LOCAL ? "http://127.0.0.1:5000" : ""; // Consider using an environment variable for the production server
 
-  export async function getUserPossibilities(userId) {
-//     // Implement the logic to fetch the user's weekly options from the backend
-//     // and return the data
-//   }
-
-//   async function fetchDataById(id) {
-    try {
-        if (LOCAL){
-            server="http://127.0.0.1:5000"
-        }
-        const response = await fetch(`${server}/api/users/${userId}/possibilities`);
-                // Check if the response is OK and is JSON
-                if (response.ok && response.headers.get('content-type').includes('application/json')) {
-                    const data = await response.json();
-                    return data;
-                } else {
-                    const other_text = await response.text()
-                    console.warn(other_text)
-                    console.error('Received non-JSON response:', response);
-                    return null;
-                }
-
-        //REGULAR CODE
-        // if (!response.ok) {
-        //     throw new Error(`HTTP error! status: ${response.status}`);
-        // }
-        // const data = await response.json();
-        // return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        return null;
+async function handleResponse(response) {
+  if (response.ok) {
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      return await response.json();
+    } else {
+      const text = await response.text();
+      console.warn('Received non-JSON response:', text);
+      return null;
     }
+  } else {
+    const errorText = await response.text();
+    console.error(`HTTP error! status: ${response.status}`, errorText);
+    return null;
+  }
 }
 
-  
+export async function getUserPlan(userId) {
+  try {
+    const response = await fetch(`${SERVER}/api/users/${userId}/plan`);
+    return await handleResponse(response);
+  } catch (error) {
+    console.error('Error fetching user plan:', error);
+    return null;
+  }
+}
+
+export async function getUserPossibilities(userId) {
+  try {
+    const response = await fetch(`${SERVER}/api/users/${userId}/possibilities`);
+    return await handleResponse(response);
+  } catch (error) {
+    console.error('Error fetching user possibilities:', error);
+    return null;
+  }
+}
+
 export async function addMealToUserPlan(userId, meal) {
 const data = {
     meal_id:meal.id
     };
 
     try {
-    const response = await fetch(`${server}/api/users/${userId}/plan`, {
+    const response = await fetch(`${SERVER}/api/users/${userId}/plan`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
@@ -55,15 +52,9 @@ const data = {
         body: JSON.stringify(data)
     });
 
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const result = await response.json();
-    console.log('Success:', result);
-    } catch (error) {
-    console.error('Error:', error);
-    }
-};
-
-  
+    return await handleResponse(response);
+  } catch (error) {
+    console.error('Error adding meal to user plan:', error);
+    return null;
+  }
+}

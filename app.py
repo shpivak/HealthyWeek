@@ -6,14 +6,15 @@ from bl.menu_service import MenuService
 from bl.user_service import UserService
 import os
 
-app = Flask(__name__, static_folder='healthyweek-frontend/build/static', template_folder='healthyweek-frontend/build')
+# app = Flask(__name__)
+app = Flask(__name__, static_folder='frontend/build/static', template_folder='frontend/build')
 CORS(app)
 
 # Initialize DAOs and Services
 menu_dao = MenuDAO()
 user_dao = UserDAO()
 menu_service = MenuService(menu_dao)
-user_service = UserService(user_dao)
+user_service = UserService(user_dao,menu_dao)
 
 @app.route('/api/menu', methods=['GET'])
 def get_menu():
@@ -46,10 +47,10 @@ def update_user_plan(user_id):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_frontend(path):
-    if path != "" and os.path.exists(app.root_path + '/healthyweek-frontend/build/' + path):
-            return send_from_directory('healthyweek-frontend/build/', path)
+    if path != "" and os.path.exists(app.root_path + '/frontend/build/' + path):
+            return send_from_directory('frontend/build/', path)
     else:
-        return send_from_directory('healthyweek-frontend/build', 'index.html')
+        return send_from_directory('frontend/build', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

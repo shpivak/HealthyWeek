@@ -1,12 +1,13 @@
 class UserService:
-    def __init__(self, user_dao):
+    def __init__(self, user_dao,menu_dao):
         self.user_dao = user_dao
+        self.menu_dao = menu_dao
 
     def get_users(self):
         return self.user_dao.get_users()
 
     def get_user_plan(self, user_id):
-        return self.user_dao.get_user_plan(user_id)
+        return self.user_dao.get_full_user_plan_meals(user_id)
 
     def get_user_possibilities(self, user_id):
         return self.user_dao.get_user_possibilities(user_id)

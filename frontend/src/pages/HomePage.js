@@ -60,7 +60,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <Header onUserIdChange={handleUserIdChange} />
-      <UserPlan weeklyCalories={weeklyCalories} dailyCalories={dailyCalories} />
+      <UserPlan userData={weeklyPlan} />
       <WeeklyOptions 
         options={weeklyOptions} 
         userId={userId} 

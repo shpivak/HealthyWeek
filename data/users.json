@@ -9,8 +9,8 @@
           1,
           2
         ],
-        "snacks": [],
-        "drinks": []
+        "snacks": [7],
+        "drinks": [8]
       },
       {
         "day": "Monday",
@@ -20,9 +20,9 @@
       },
       {
         "day": "Tuesday",
-        "meals": [],
-        "snacks": [],
-        "drinks": []
+        "meals": [3,4],
+        "snacks": [6],
+        "drinks": [10]
       },
       {
         "day": "Wednesday",
@@ -58,7 +58,9 @@
     "weekly_plan": [
       {
         "day": "Sunday",
-        "meals": [],
+        "meals": [
+          1
+        ],
         "snacks": [],
         "drinks": []
       },
