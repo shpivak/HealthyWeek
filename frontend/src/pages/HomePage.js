@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import UserPlan from '../components/UserPlan';
 import WeeklyOptions from '../components/WeeklyOptions';
 import { getUserPlan, getUserPossibilities, addMealToUserPlan } from '../utils/api';
+import '../styles/styles.css';
 
 const HomePage = () => {
   const [userId, setUserId] = useState(null);

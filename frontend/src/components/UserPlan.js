@@ -1,7 +1,6 @@
 import React from 'react';
 
 const WeeklyMealPlanTable = ({ userData }) => {
-  debugger;
   const { weekly_plan, meals } = userData;
 
   const getMealInfo = (mealId) => {
@@ -18,42 +17,42 @@ const WeeklyMealPlanTable = ({ userData }) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full bg-white">
-        <thead className="bg-gray-100">
+      <table>
+        <thead>
           <tr>
-            <th className="py-2 px-4 border-b">Day</th>
-            <th className="py-2 px-4 border-b">Meals</th>
-            <th className="py-2 px-4 border-b">Snacks</th>
-            <th className="py-2 px-4 border-b">Drinks</th>
-            <th className="py-2 px-4 border-b">Total Calories</th>
+            <th>Day</th>
+            <th>Meals</th>
+            <th>Snacks</th>
+            <th>Drinks</th>
+            <th>Total Calories</th>
           </tr>
         </thead>
         <tbody>
           {weekly_plan?.map((day, index) => (
-            <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-              <td className="py-2 px-4 border-b">{day.day}</td>
-              <td className="py-2 px-4 border-b">
+            <tr key={index}>
+              <td>{day.day}</td>
+              <td>
                 <ul>
                   {day.meals?.map((mealId, mealIndex) => (
                     <li key={mealIndex}>{getMealInfo(mealId)}</li>
                   ))}
                 </ul>
               </td>
-              <td className="py-2 px-4 border-b">
+              <td>
                 <ul>
                   {day.snacks?.map((snackId, snackIndex) => (
                     <li key={snackIndex}>{getMealInfo(snackId)}</li>
                   ))}
                 </ul>
               </td>
-              <td className="py-2 px-4 border-b">
+              <td>
                 <ul>
                   {day.drinks?.map((drinkId, drinkIndex) => (
                     <li key={drinkIndex}>{getMealInfo(drinkId)}</li>
                   ))}
                 </ul>
               </td>
-              <td className="py-2 px-4 border-b">{calculateDailyCalories(day)}</td>
+              <td>{calculateDailyCalories(day)}</td>
             </tr>
           ))}
         </tbody>
@@ -78,10 +77,10 @@ const UserPlan = ({ userData }) => {
 
   return (
     <div className="user-plan p-4">
-      <h2 className="text-2xl font-bold mb-4">Your Plan</h2>
+      <h2>Your Plan</h2>
       <div className="calories-info mb-4">
-        <p className="text-lg">Weekly Calories: {weeklyCalories}</p>
-        <p className="text-lg">Daily Calories (avg): {dailyCalories}</p>
+        <p>Weekly Calories: {weeklyCalories}</p>
+        <p>Daily Calories (avg): {dailyCalories}</p>
       </div>
       <WeeklyMealPlanTable userData={userData} />
     </div>
