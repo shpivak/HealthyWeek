@@ -1,0 +1,96 @@
+
+
+/* Color Scheme */
+:root {
+  --white: #ffffff;
+  --green: #4CAF50;
+  --orange: #FF9800;
+  --light-gray: #f4f4f4;
+  --gray: #e0e0e0;
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--light-gray);
+  color: var(--green);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header .logo img {
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray);
+}
+
+th {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+/* Button Styles */
+button {
+  background-color: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--green);
+}
+
+/* Additional Elements */
+.calories-info {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-plan h2 {
+  color: var(--orange);
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}

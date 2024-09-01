@@ -2,9 +2,9 @@
   {
     "id": 1,
     "name": "John Doe",
-    "weekly_plan": [
-      {
-        "day": "Sunday",
+    "weekly_plan": {
+	"Sunday": {
+		"day": "Sunday",
         "meals": [
           1,
           2
@@ -12,31 +12,31 @@
         "snacks": [7],
         "drinks": [8]
       },
-      {
-        "day": "Monday",
+      "Monday":{
+		"day": "Monday",
         "meals": [],
         "snacks": [],
         "drinks": []
       },
-      {
-        "day": "Tuesday",
+      "Tuesday":{
+		"day": "Tuesday",
         "meals": [3,4],
         "snacks": [6],
         "drinks": [10]
       },
-      {
-        "day": "Wednesday",
+      "Wednesday":{
+		"day": "Wednesday",
         "meals": [],
         "snacks": [],
         "drinks": []
       },
-      {
+      "Thursday":{
         "day": "Thursday",
         "meals": [],
         "snacks": [],
         "drinks": []
       }
-    ],
+    },
     "possibilities": [
       1,
       2,
@@ -55,51 +55,41 @@
   {
     "id": 2,
     "name": "Jane Smith",
-    "weekly_plan": [
-      {
-        "day": "Sunday",
+    "weekly_plan": {
+	"Sunday": {
         "meals": [
-          1
+          2
         ],
         "snacks": [],
         "drinks": []
       },
-      {
-        "day": "Monday",
+      "Monday":{
         "meals": [],
         "snacks": [],
         "drinks": []
       },
-      {
-        "day": "Tuesday",
+	  "Tuesday": {
         "meals": [],
         "snacks": [],
         "drinks": []
       },
-      {
-        "day": "Wednesday",
+      "Wednesday":{
         "meals": [],
         "snacks": [],
         "drinks": []
       },
-      {
-        "day": "Thursday",
-        "meals": [],
+	  "Thursday":{
+        "meals": [3,4],
         "snacks": [],
         "drinks": []
       }
-    ],
+    },
     "possibilities": [
       1,
       2,
       3,
       4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
+      5
     ],
     "daily_calories_consumed": 0,
     "weekly_calories_consumed": 0
@@ -107,51 +97,44 @@
   {
     "id": 3,
     "name": "David Johnson",
-    "weekly_plan": [
-      {
-        "day": "Sunday",
-        "meals": [],
-        "snacks": [],
-        "drinks": []
-      },
-      {
-        "day": "Monday",
-        "meals": [],
-        "snacks": [],
-        "drinks": []
-      },
-      {
-        "day": "Tuesday",
-        "meals": [],
-        "snacks": [],
-        "drinks": []
-      },
-      {
-        "day": "Wednesday",
-        "meals": [],
-        "snacks": [],
-        "drinks": []
-      },
-      {
-        "day": "Thursday",
-        "meals": [],
-        "snacks": [],
-        "drinks": []
-      }
-    ],
-    "possibilities": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ],
-    "daily_calories_consumed": 0,
-    "weekly_calories_consumed": 0
-  }
+	"weekly_plan": {
+		"Sunday": {
+			"meals": [
+			  1
+			],
+			"snacks": [],
+			"drinks": []
+		  },
+		  "Monday":{
+			"meals": [],
+			"snacks": [],
+			"drinks": [8]
+		  },
+		  "Tuesday": {
+			"meals": [],
+			"snacks": [],
+			"drinks": []
+		  },
+		  "Wednesday":{
+			"meals": [],
+			"snacks": [],
+			"drinks": []
+		  },
+		  "Thursday":{
+			"meals": [],
+			"snacks": [],
+			"drinks": []
+		  }
+		},
+		"possibilities": [
+		  1,
+		  2,
+		  3,
+		  8,
+		  9,
+		  10
+		],
+		"daily_calories_consumed": 0,
+		"weekly_calories_consumed": 0
+	  }
 ]

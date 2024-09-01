@@ -33,7 +33,7 @@ const HomePage = () => {
   const calculateCalories = (plan) => {
     let weeklyCalories = 0;
     let dailyCalories = 0;
-    plan?.forEach((day) => {
+    plan?.values().forEach((day) => {
       const dayCalories = day.meals.reduce((total, meal) => total + meal.calories, 0);
       dailyCalories += dayCalories;
       weeklyCalories += dayCalories;
@@ -42,14 +42,14 @@ const HomePage = () => {
     setDailyCalories(dailyCalories);
   };
 
-  const handleAddToUserPlan = async (option) => {
-    try {
-      await addMealToUserPlan(userId, option);
-      fetchUserData(userId);
-    } catch (error) {
-      console.error('Error adding meal to user plan:', error);
-    }
-  };
+  // const handleAddToUserPlan = async (option) => {
+  //   try {
+  //     await addMealToUserPlan(userId, option);
+  //     fetchUserData(userId);
+  //   } catch (error) {
+  //     console.error('Error adding meal to user plan:', error);
+  //   }
+  // };
 
   const handleUserIdChange = (id) => {
     setUserId(id);

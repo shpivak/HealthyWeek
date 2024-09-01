@@ -38,9 +38,10 @@ export async function getUserPossibilities(userId) {
   }
 }
 
-export async function addMealToUserPlan(userId, meal) {
+export async function addMealToUserPlan(userId, meal,day,mealtime) {
 const data = {
-    meal_id:meal.id
+    meal_id:meal.id,
+    day
     };
 
     try {

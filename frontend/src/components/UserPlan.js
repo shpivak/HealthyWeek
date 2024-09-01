@@ -28,33 +28,33 @@ const WeeklyMealPlanTable = ({ userData }) => {
           </tr>
         </thead>
         <tbody>
-          {weekly_plan?.map((day, index) => (
-            <tr key={index}>
-              <td>{day.day}</td>
-              <td>
-                <ul>
-                  {day.meals?.map((mealId, mealIndex) => (
-                    <li key={mealIndex}>{getMealInfo(mealId)}</li>
-                  ))}
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  {day.snacks?.map((snackId, snackIndex) => (
-                    <li key={snackIndex}>{getMealInfo(snackId)}</li>
-                  ))}
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  {day.drinks?.map((drinkId, drinkIndex) => (
-                    <li key={drinkIndex}>{getMealInfo(drinkId)}</li>
-                  ))}
-                </ul>
-              </td>
-              <td>{calculateDailyCalories(day)}</td>
-            </tr>
-          ))}
+        {Object.entries(weekly_plan || {}).map(([day, daysMeals], index) => (
+          <tr key={index}>
+            <td>{day}</td> {/* The key (day of the week) */}
+            <td>
+              <ul>
+                {daysMeals.meals?.map((mealId, mealIndex) => (
+                  <li key={mealIndex}>{getMealInfo(mealId)}</li>
+                ))}
+              </ul>
+            </td>
+            <td>
+              <ul>
+                {daysMeals.snacks?.map((snackId, snackIndex) => (
+                  <li key={snackIndex}>{getMealInfo(snackId)}</li>
+                ))}
+              </ul>
+            </td>
+            <td>
+              <ul>
+                {daysMeals.drinks?.map((drinkId, drinkIndex) => (
+                  <li key={drinkIndex}>{getMealInfo(drinkId)}</li>
+                ))}
+              </ul>
+            </td>
+            <td>{calculateDailyCalories(daysMeals)}</td>
+          </tr>
+        ))}
         </tbody>
       </table>
     </div>
@@ -63,7 +63,7 @@ const WeeklyMealPlanTable = ({ userData }) => {
 
 const UserPlan = ({ userData }) => {
   const calculateTotalCalories = () => {
-    return userData?.weekly_plan?.reduce((total, day) => {
+    return Object.values(userData?.weekly_plan || {}).reduce((total, day) => {
       const dayCalories = [...day.meals, ...day.snacks, ...day.drinks].reduce((dayTotal, mealId) => {
         const meal = userData.meals.find(m => m.id === mealId);
         return dayTotal + (meal ? meal.calories : 0);

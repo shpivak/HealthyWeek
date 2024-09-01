@@ -35,7 +35,10 @@ def get_user_possibilities(user_id):
 @app.route('/api/users/<int:user_id>/plan', methods=['POST'])
 def add_meal_to_user_plan(user_id):
     data = request.get_json()
-    user_service.add_meal_to_user_plan(user_id, data)
+    try:
+        user_service.add_meal_to_user_plan(user_id, data)
+    except Exception as e :
+        return jsonify({'message': f'could not add a meal: {e}'}), 500
     return jsonify({'message': 'Meal added to user plan successfully'}), 200
 
 @app.route('/api/users/<int:user_id>/plan', methods=['POST'])
