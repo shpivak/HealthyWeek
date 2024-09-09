@@ -18,5 +18,5 @@ class UserService:
     def add_meal_to_user_plan(self, user_id, meal_data):
         plan = self.get_user_plan(user_id)
         # plan[0]["meals"].append(meal_data["meal_id"])
-        plan["weekly_plan"][meal_data["day"]].append(meal_data["meal_id"])
+        plan["weekly_plan"][meal_data["day"]]["meals"].append(meal_data["meal_id"])
         self.user_dao.update_user_plan(user_id, plan)

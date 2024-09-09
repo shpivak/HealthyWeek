@@ -31,39 +31,67 @@ const WeeklyOptions = ({ options, userId, onMealAdded }) => {
     }
   };
 
+  const getMealEmoji = (category,name="") =>{
+    // if (name.includes("rice"))
+    //   return "🍚"
+    // if (name.toLowerCase().includes("wine"))
+    //   return "🍷"
+    // if (name.toLowerCase().includes("beer"))
+    //   return "🍺"
+    // if (name.toLowerCase().includes("coffee"))
+    //   return "☕"
+    //TODO: add more
+
+    switch (category){
+      case "Drink":
+        return "🥤"
+      case "Snack":
+        return "🍫"
+      case "Breakfast":
+        return "🍳"
+      case "Lunch":
+        return "🍲"
+      case "Dinner":
+      return "🍽️"
+      default:
+        return ""
+    }
+  }
+
   return (
     <div className="weekly-options">
       <h2>Weekly Options</h2>
       <div className="dropdown-container">
-        <select
-          value={selectedDay}
-          onChange={(e) => setSelectedDay(e.target.value)}
-          className="day-dropdown"
-        >
-          {daysOfWeek.map((day) => (
-            <option key={day} value={day}>{day}</option>
-          ))}
-        </select>
+        Add a 
         <select
           value={selectedMeal}
           onChange={(e) => setSelectedMeal(e.target.value)}
-          className="meal-dropdown"
+          className="meal-dropdown orange-dropdown"
         >
           {mealsOfDay.map((meal) => (
             <option key={meal} value={meal}>{meal}</option>
           ))}
         </select>
+        On 
+        <select
+          value={selectedDay}
+          onChange={(e) => setSelectedDay(e.target.value)}
+          className="day-dropdown orange-dropdown"
+        >
+          {daysOfWeek.map((day) => (
+            <option key={day} value={day}>{day}</option>
+          ))}
+        </select>
       </div>
       <ul>
         {options?.map((option) => (
-          <li key={option.id}>
-            <span>{option.name} - {option.calories} calories</span>
+          <li key={option.id} class="option-item">
             <button 
-              className="add-meal-btn" 
-              onClick={() => handleAddToUserPlan(option)}
-            >
-              Add to {selectedMeal} on {selectedDay}
+              className="add-meal-btn plus-btn"
+              onClick={() => handleAddToUserPlan(option)}>
+              +
             </button>
+            <span>{getMealEmoji(option.category,option.name)} {option.name} - {option.calories} calories</span>
           </li>
         ))}
       </ul>

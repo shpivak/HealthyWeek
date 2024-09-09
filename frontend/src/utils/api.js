@@ -2,20 +2,34 @@ const LOCAL = true;
 const SERVER = LOCAL ? "http://127.0.0.1:5000" : ""; // Consider using an environment variable for the production server
 
 async function handleResponse(response) {
-  if (response.ok) {
-    const contentType = response.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
-      return await response.json();
+    if (response.ok) {
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+        return await response.json();
+        } else {
+        const text = await response.text();
+        console.warn('Received non-JSON response:', text);
+        return null;  // Return null for non-JSON responses
+        }
     } else {
-      const text = await response.text();
-      console.warn('Received non-JSON response:', text);
-      return null;
+        const errorText = await response.text();
+        switch (response.status) {
+        case 404:
+            console.warn('Resource not found (404). Returning empty response.');
+            return {};  // Return an empty object for 404 Not Found
+        case 403:
+        case 401:
+            showAuthPopup();  // Handle authentication errors by showing a popup
+            break;
+        default:
+            console.error(`HTTP error! status: ${response.status}`, errorText);
+        }
+        return null;  // Return null for errors
     }
-  } else {
-    const errorText = await response.text();
-    console.error(`HTTP error! status: ${response.status}`, errorText);
-    return null;
-  }
+}
+
+function showAuthPopup() {
+    alert('Authentication error. Please log in again.');  // Placeholder for better UI handling
 }
 
 export async function getUserPlan(userId) {
@@ -24,7 +38,7 @@ export async function getUserPlan(userId) {
     return await handleResponse(response);
   } catch (error) {
     console.error('Error fetching user plan:', error);
-    return null;
+    return {};
   }
 }
 

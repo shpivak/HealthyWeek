@@ -4,16 +4,26 @@
 :root {
   --white: #ffffff;
   --green: #4CAF50;
+  --dark-green: #2c742f;
   --orange: #FF9800;
+  --dark-orange:#db7a03;
   --light-gray: #f4f4f4;
   --gray: #e0e0e0;
+  --dark-gray: #333;
+}
+
+.green-text{
+  color:var(--green)
+}
+.orange-text{
+  color:var(--orange)
 }
 
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: var(--light-gray);
-  color: var(--green);
+  color: var(--dark-gray);
   margin: 0;
   padding: 0;
 }
@@ -66,25 +76,18 @@ tbody tr:nth-child(even) {
   background-color: var(--light-gray);
 }
 
-/* Button Styles */
-button {
-  background-color: var(--orange);
-  color: var(--white);
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--green);
-}
-
 /* Additional Elements */
 .calories-info {
+  margin-bottom: 2%;
+}
+
+.calories-info span{
   background-color: var(--green);
   color: var(--white);
   padding: 10px;
   border-radius: 5px;
+  width: fit-content;
+  margin: 10px 20px 0px 0px;
 }
 
 .user-plan h2 {
@@ -93,4 +96,126 @@ button:hover {
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+/* Orange dropdown styling */
+.orange-dropdown {
+  background-color: var(--orange); /* Nice orange color */
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--orange);
+  font-size: 1em;
+  margin: 1%;
+}
+
+.orange-dropdown:hover {
+  background-color:var(--dark-orange); /* Slightly darker orange on hover */
+}
+
+ul {
+  padding: 0%;  
+}
+
+/* .option-item{ */
+li{
+  list-style-type: none;
+  margin: 1%
+}
+/* Plus button styling */
+.plus-btn {
+  background-color:var(--green); /* Green background for the "+" button */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.plus-btn:hover {
+  background-color:var(--dark-green); /* Darker green on hover */
+}
+
+/* Button for toggling */
+.toggle-btn {
+  background-color: var(--orange); /* Orange background */
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn .arrow {
+  margin-left: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.toggle-btn .arrow.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.toggle-btn .arrow.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+/* Animation for the table */
+.table-animation-enter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease-out, opacity 300ms ease-out;
+}
+
+.table-animation-enter-active {
+  max-height: 500px; /* Adjust this value based on the table size */
+  opacity: 1;
+}
+
+.table-animation-exit {
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 300ms ease-in, opacity 300ms ease-in;
+}
+
+.table-animation-exit-active {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Table styles */
+.table-wrapper {
+  margin-top: 20px;
+}
+
+.full-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--light-gray);
+}
+
+.full-table th,
+.full-table td {
+  border: 1px solid var(--light-gray);;
+  padding: 8px;
+}
+
+.full-table th {
+  background-color: var(--gray);
+  font-weight: bold;
 }

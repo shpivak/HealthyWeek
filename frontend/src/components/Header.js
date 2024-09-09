@@ -10,7 +10,7 @@ const Header = ({ onUserIdChange }) => {
 
   return (
     <header>
-      <h1>HealthyWeek</h1>
+      <h1><span class="green-text">Healthy</span><span class="orange-text">Week</span></h1>
       <input
         type="number"
         placeholder="Enter User ID"

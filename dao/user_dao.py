@@ -1,3 +1,4 @@
+from cgitb import reset
 import json
 from dao.menu_dao import MenuDAO
 
@@ -38,7 +39,7 @@ class UserDAO:
     def update_user_plan(self, user_id, plan_data):
         for user in self.user_data:
             if user['id'] == user_id:
-                user['weekly_plan'] = plan_data
+                self.user_data['weekly_plan'] = plan_data['weekly_plan']
                 self.save_user_data()
                 return
 
